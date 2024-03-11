@@ -11,6 +11,18 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/api/messages", (req: Request, res: Response) => {
+    // let name = "Stefan"
+    // name = 12
+    // name = null
+    
+
+    // namn skla vara string eller NULL 
+    // ||   
+    
+    // let namn : String | null = "Hejsan"
+    // namn = null
+
+
 
     // let a : Number | null  = 100
     // a = 200
