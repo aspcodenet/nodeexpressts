@@ -5,6 +5,7 @@ import fs from 'fs'
 import { sequelize } from '../db';
 import { Sequelize, QueryTypes } from 'sequelize';
 import { Migration202403101429 } from './202403101429-createplayer';
+import { Migration202403110222AddJersey2 } from './202403111022-addJersey';
 
 export interface IMigrationInterface {
     up( sequelize: Sequelize ): Promise<void>;
@@ -13,6 +14,7 @@ export interface IMigrationInterface {
 
 const allMigrations : IMigrationInterface[] = [
     new Migration202403101429,
+    new Migration202403110222AddJersey2
 ]
 
 

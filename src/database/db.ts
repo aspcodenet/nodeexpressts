@@ -23,6 +23,10 @@ export async function initializeDatabase(){
             type: new DataTypes.STRING(128),
             allowNull: false
           },
+          jersey: {
+            type: new DataTypes.INTEGER,
+            allowNull: true
+          },
           createdAt: DataTypes.DATE,
           updatedAt: DataTypes.DATE,
         },

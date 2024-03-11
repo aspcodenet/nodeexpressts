@@ -6,6 +6,7 @@ import { Model, CreationOptional,InferAttributes, InferCreationAttributes } from
     declare id: CreationOptional<number>;
     declare name: string;
     declare team: string | null;
+    declare jersey: Number | null;
  
      // timestamps!
   // createdAt can be undefined during creation
