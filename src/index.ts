@@ -3,6 +3,8 @@ import type {Express,Request,Response}  from "express";
 import  {getAllMessages}  from "./models/message";
 import { initializeDatabase, sequelize } from "./database/db";
 import { migrate } from "./database/migrations/migrationhelper";
+import { Product } from "./database/product";
+import { Player } from "./database/player";
 
 
 const port:Number = 3000
@@ -14,6 +16,14 @@ app.get("/", (req: Request, res: Response) => {
 
     res.send("Express + TypeScript Server2");
 });
+
+app.get("/api/products", (req: Request, res: Response) => {
+    // let name = "Stefan"
+    //res.json(Player.findAll())
+    res.json(Product.findAll())
+});
+
+
 
 app.get("/api/messages", (req: Request, res: Response) => {
     // let name = "Stefan"
@@ -40,7 +50,7 @@ app.get("/api/messages", (req: Request, res: Response) => {
 
 
 app.listen(port, async () => {
-    //await initializeDatabase()
+    await initializeDatabase()
     await migrate(sequelize)
     //await sequelize.sync()  // DROP TABLES, CREATE TABLES
     // kör en gång och sen  bortkommentera
