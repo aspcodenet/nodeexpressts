@@ -26,6 +26,34 @@ async function syncProducts() {
     // https://fakestoreapi.com/products
     let products = await fetchProducts()
     for(let p of products){
+      const existingProduct = await Product.findOne({
+        where:{
+          externalID: p.id
+        }
+      });
+      if(existingProduct === null  ||  existingProduct === undefined){
+        await Product.create({
+          externalID:p.id.toString(),
+          name: p.title,
+          description: "",
+          unitPrice: p.price,
+          category:p.category,
+          stockLevel:0,
+          brand:""
+      });
+      }else{
+        existingProduct.name = p.title;
+        existingProduct.description = p.description.substring(100);
+        existingProduct.unitPrice = p.price;
+        existingProduct.category = p.category;
+        await existingProduct.save()
+      }
+      // om p.id redan finns i vår databas:
+      /// mappa emot product.externalID
+      //      vi köra update
+      // annars
+    //       vi köra insert
+
         console.log(p.title)
     }
 
@@ -40,7 +68,6 @@ async function start(){
 
 
     await syncProducts()
-
 
     console.log('Ending')
 }

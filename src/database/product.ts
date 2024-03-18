@@ -9,6 +9,7 @@ import { Model, CreationOptional,InferAttributes, InferCreationAttributes } from
     declare category: string | null;
     declare unitPrice: Number | null;  
     declare stockLevel: Number | null;
+    declare externalID: string | null;
  
      // timestamps!
   // createdAt can be undefined during creation

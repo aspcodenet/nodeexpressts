@@ -69,6 +69,10 @@ export async function initializeDatabase(){
             type: new DataTypes.INTEGER,
             allowNull: false
           },
+          externalID: {
+            type: new DataTypes.STRING(128),
+            allowNull: false
+          },
           createdAt: DataTypes.DATE,
           updatedAt: DataTypes.DATE,
         },

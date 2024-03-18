@@ -7,6 +7,7 @@ import { Sequelize, QueryTypes } from 'sequelize';
 import { Migration202403101429 } from './202403101429-createplayer';
 import { Migration202403110222AddJersey2 } from './202403111022-addJersey';
 import { Migration2024031414 } from './202403141429-createproduct';
+import { Migration202403110222AddExternalId } from './202403180948-AddExternalId';
 
 export interface IMigrationInterface {
     up( sequelize: Sequelize ): Promise<void>;
@@ -16,7 +17,9 @@ export interface IMigrationInterface {
 const allMigrations : IMigrationInterface[] = [
     new Migration202403101429,
     new Migration202403110222AddJersey2,
-    new Migration2024031414
+    new Migration2024031414,
+    new Migration202403110222AddExternalId
+
 ]
 
 
